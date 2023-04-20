@@ -1,0 +1,113 @@
+<!doctype html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+
+.wrap {
+    margin-bottom: 10px;
+}
+</style>
+
+<head>
+    <title>Прогнозирование модуля упругости при растяжении</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+    <fieldset>
+        <legend>Введите значение</legend>
+        <div class="wrap">
+            <label class="label">Плотность, кг/м3</label>
+            <input name="density" type="number"
+            required>
+        </div>
+        
+        <div class="wrap">
+            <label class="label">Угол нашивки, град</label>
+            <input name="angle" type="number"
+            required>
+        </div>
+        
+        <div class="wrap">
+            <label class="label">Шаг нашивки</label>
+            <input name="step" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Плотность нашивки</label>
+            <input name="patch_density" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Модуль упругости, ГПа</label>
+            <input name="elasticity_module" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Количество отвердителя, м.%</label>
+            <input name="hardener_quantity" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Содержание эпоксидных групп,%</label>
+            <input name="epoxy_group" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Температура вспышки, С</label>
+            <input name="temperature" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Поверхностная плотность, г/м2</label>
+            <input name="surface_density" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Прочность при растяжении, МПа</label>
+            <input name="tensile_strength" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Потребление смолы, г/м2</label>
+            <input name="resin_consumption" type="number"
+            required>
+        </div>
+
+        <div class="wrap">
+            <label class="label">Модуль упругости при растяжении, ГПа</label>
+            <input name="elasticity_module2" type="number"
+            required>
+        </div>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+    <br>
+    <p style="font-size:50px">
+        Прогнозное значение - Модуль упругости при растяжении
+    </p>
+    <p style="font-size:50px">
+        {{result}}
+    </p>
+    {% endif %}
+</div> 
